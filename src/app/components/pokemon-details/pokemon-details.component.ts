@@ -30,7 +30,6 @@ export class PokemonDetailsComponent implements OnInit {
   pokemonDetails(id) {
     let param = id[0] === '/' ? id[1] : id;
     return this.restApi.getPokemonDetails(param).subscribe((data: {}) => {
-      console.log(data);
       this.PokemonDetails = data;
       this.imgPathFront = this.PokemonDetails['sprites']['front_default'];
       this.imgPathBack = this.PokemonDetails['sprites']['front_shiny'];
