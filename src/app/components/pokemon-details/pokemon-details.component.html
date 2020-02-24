@@ -1,0 +1,64 @@
+<div class="card-details">
+  <mat-card class="card">
+    <mat-card-header>
+      <div
+        mat-card-avatar
+        class="header-image"
+        [style.background-image]="'url(' + imgPathBack + ')'"
+      ></div>
+      <mat-card-title>{{ PokemonDetails.name }}</mat-card-title>
+      <mat-card-subtitle style="display: inline"
+        ><button mat-stroked-button color="accent">Weight:</button>
+        <button mat-mini-fab disabled>{{ PokemonDetails.weight }}</button>
+      </mat-card-subtitle>
+      <mat-card-subtitle style="display: inline"
+        ><button mat-stroked-button color="accent">Height:</button>
+        <button mat-mini-fab disabled>{{ PokemonDetails.height }}</button>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="imgPathFront"
+      height="250px"
+      width="30px"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <mat-chip-list aria-label="Fish selection">
+        <label for="">Abilities:</label>
+        <mat-chip
+          color="primary"
+          selected
+          *ngFor="let ability of PokemonDetails.abilities; let i = index"
+          >{{ ability['ability']['name'] }}</mat-chip
+        >
+      </mat-chip-list>
+      <mat-chip-list aria-label="Fish selection">
+        <label for="">Base Experience:</label>
+        <mat-chip color="warn" selected>{{
+          PokemonDetails['base_experience']
+        }}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <label for="">Like Me: </label>
+      <button mat-icon-button [color]="likeColor" (click)="likeChange()">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-button (click)="shareUrl()">
+        SHARE
+        <i class="material-icons">
+          share
+        </i>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div class="back-button">
+  <button mat-raised-button color="accent" [routerLink]="['/landing-page']">
+    Back
+    <i class="material-icons">
+      keyboard_return
+    </i>
+  </button>
+</div>

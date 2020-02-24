@@ -1,0 +1,70 @@
+<div class="mat-elevation-z8">
+  <mat-form-field class="filter-align">
+    <input
+      matInput
+      (keyup)="applyFilter($event.target.value)"
+      placeholder="Filter"
+    />
+  </mat-form-field>
+  <label class="total-pokemon"
+    >Showing 20 of {{ Pokemon['count'] }} Total Pokemons</label
+  >
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Sort">
+        Name
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        class="pokemon-details"
+        matTooltip="Click to see more details"
+        matTooltipClass="tooltip-red"
+        [routerLink]="['/pokemon-details', element.url.slice(-3)]"
+      >
+        {{ element.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="url">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Sort">
+        URL
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        class="pokemon-details"
+        matTooltip="Click to see more details"
+        matTooltipClass="tooltip-red"
+        [routerLink]="['/pokemon-details', element.url.slice(-3)]"
+      >
+        {{ element.url }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+
+<div *ngIf="previous" class="previous-button">
+  <button mat-raised-button color="accent" (click)="getPreviousRecordSet()">
+    Previous 20 Records
+    <i class="material-icons">
+      navigate_before
+    </i>
+  </button>
+</div>
+<div class="next-button">
+  <button mat-raised-button color="accent" (click)="getNextRecordSet()">
+    <i class="material-icons">
+      navigate_next
+    </i>
+    Next 20 Records
+  </button>
+</div>

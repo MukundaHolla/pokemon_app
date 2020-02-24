@@ -1,0 +1,43 @@
+table {
+  margin: auto;
+  width: 60%;
+  border: 3px solid grey;
+  padding: 10px;
+}
+
+.mat-elevation-z8 {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.pokemon-details {
+  cursor: pointer;
+}
+
+.next-button {
+  margin-left: 40%;
+  display: inline;
+}
+
+.previous-button {
+  margin-right: -450px;
+  margin-left: 34%;
+  display: inline;
+}
+
+.total-pokemon {
+  margin-left: 35%;
+}
+
+.filter-align {
+  margin-left: 40%;
+}
+
+.tooltip-red {
+  background: #b71c1c;
+}

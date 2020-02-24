@@ -1,0 +1,17 @@
+.card {
+  max-width: 400px;
+}
+
+.header-image {
+  background-size: cover;
+}
+
+.card-details {
+  margin-left: 33%;
+  margin-top: 20px;
+}
+
+.back-button {
+  margin-left: 45%;
+  margin-top: 10px;
+}
